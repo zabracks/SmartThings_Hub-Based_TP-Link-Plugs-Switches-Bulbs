@@ -1,0 +1,50 @@
+Update from earlier versions
+
+Who should upgrade:
+	Persons who use Amazon Echo (Alexa) to command bulbs.
+	Persons with 2.0 through 2.1 installation who have had any problems.
+
+Upgrade Instructions:
+	1.	Go to the SmartThings Developer community and log on.
+	2.	Open the current Device Handler.
+	3.	Copy the contents of the new device handler file (replacing the data in the current file).
+	4.	SAVE
+	5.	PUBLISH FOR ME.
+
+Upgrade notes from version 2.0
+
+Version 2.1.  General update to add bridge capability.  This adds a "bridge" device. Through the bridge, you can monitor the status of the Node.js applications and also RESTART the bridge.
+
+Version 2.2  Integrated the parameter "ignore_default" into the commands.  Allows sending of on along with other parameters, reducing number of commands sent.
+
+Version 2.3  Fixed problem with Alexa Voice Command changes.  These changed to provide brightnes with decimals (i.e., 10.1 versus integer 10).
+
+Version 3.0.  Numerous improvements and additions.
+	a.  Added HS110 energy monitor support (HS110 only)
+	b.  Changed communications protocol from TCP to UDP.
+	c.  Added 'waiting' state that displays on "on/off" whenever any function (except HS110 "refresh stats') is selected until the response is received from the device.
+
+
+INSTALLATION FILES
+
+Root directory
+•	“TP-LinkServer.js” – the single node.js server script.
+•	“TP-LinkServer.bat” – a MS Windows server start file.
+
+DeviceHandlers directory
+•	“TP-Link_HS_Series_v3.0.groovy” – Device Handler for ALL HS Series devices.
+•	"TP-Link_HS105_v3.0.groovy" - Device Handler for the HS110 with energy mon.
+•	“TP-Link_LB100_110_v3.0.grooy” – Device Handler for the LB100 and LB110.
+•	“TP-Link_LB120_v3.0.grooy” – Device Handler for the LB120.
+•	“TP-Link_LB130_v3.0.grooy” – Device Handler for the LB130.
+•	“TP-Link SmartThing Implementation.pdf” – operational description.
+
+Utilities directory
+•	“GetDeviceIPs.js" and "GetDeviceIPs.bat" - a utility to derive a list of the TP-Link devices on you LAN.  Information SmartThings DH installation.
+•	“CmdPrompt.bat" - will open the command prompt in the current directory (wherever it may be placed).
+
+Documentation Directory
+•	“Update from earlier versions.txt" - these instrucions.
+•	“Instructions - TP-Link Server Install.txt" - instructions for a full (from scratch) installation.
+•	“TP-Link Devices V3.0 Design Notes.txt"
+•	“TP-Link SmartThing Implementation.pdf" - description of these devices as they appear on SmartThings.

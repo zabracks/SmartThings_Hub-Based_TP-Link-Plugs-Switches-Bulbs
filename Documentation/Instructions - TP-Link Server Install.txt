@@ -1,0 +1,157 @@
+Installation Instructions for the TP-Link Devices to SmartThings
+
+These instructions are for the installation of the TP-Link devices into the SmartThings platform.  There are four aspects of this installation:
+
+a.	The Windows 10 PC based node.js utility which provides the framework.
+b.	Copy these files to the server PC.
+c.	The node.js applet "TP-LinkServer.js", the interface between SmartThings and the TP-Link devices.
+d.	The device handlers (one for each device type you use) that implement the TP-Link devices on your PC.
+
+INSTALLATION FILES
+
+Root directory
+•	“TP-LinkServer.js” – the single node.js server script.
+•	“TP-LinkServer.bat” – a MS Windows server start file.
+
+DeviceHandlers directory
+•	“TP-Link_HS_Series_v3.0.groovy” – Device Handler for ALL HS Series devices.
+•	"TP-Link_HS105_v3.0.groovy" - Device Handler for the HS110 with energy mon.
+•	“TP-Link_LB100_110_v3.0.grooy” – Device Handler for the LB100 and LB110.
+•	“TP-Link_LB120_v3.0.grooy” – Device Handler for the LB120.
+•	“TP-Link_LB130_v3.0.grooy” – Device Handler for the LB130.
+•	“TP-Link SmartThing Implementation.pdf” – operational description.
+
+Utilities directory
+•	“GetDeviceIPs.js" and "GetDeviceIPs.bat" - a utility to derive a list of the TP-Link devices on you LAN.  Information SmartThings DH installation.
+•	“CmdPrompt.bat" - will open the command prompt in the current directory (wherever it may be placed).
+
+Documentation Directory
+•	“Instructions - TP-Link Server Install.txt" - these instructions
+•	“Update from earlier versions.txt" - simplifed instructions to update only.
+•	“TP-Link Devices V3.0 Design Notes.txt"
+•	“TP-Link SmartThing Implementation.pdf" - description of these devices as they appear on SmartThings.
+
+
+UPDATE INSTALLATIONS
+
+If you are updating, read the instructions in "Instructions - Update from version 2.x.txt".  These are greatly simplified.
+
+
+PRE-REQUISITES
+
+-	A bridge device that is always on and can run the node.js environment.  Must be on the same LAN as the SmartThings and the TP-Link devices.
+	-	Windows PC, Stick PC, or tablet
+	-	Raspberry PI
+	-	MAC
+- 	Static IP address for your gateway PC. Assign through your router.
+- 	Static IP address for each of your TP Link devices
+
+
+BASIC INSTALLATION STEPS
+
+A.	Install node.js application (free) (see below).
+B.	Assign static IP addresses for your Bridge (PC or otherwise).
+C.	Install the "TP-LinkServer.js" node.js applet.
+D.	Install the Device Handler(s) into the SmartThings environment.
+E.	Install the actual devices in SmartThings.
+F.	(Windows PC) Set your Windows PC to auto-restart
+
+
+A.	NODE.JS UTILITY INSTALLATION
+
+(PC and MAC) Install this utility from this link directly.  Ensure that you get the "msi" installer package, not just the "exe" binary.
+
+	https://nodejs.org/en/download/
+
+(Raspberry Pi) Check with the community on installing the package on the Raspberry Pi).
+
+
+B.	ASSIGN STATIC IP ADDRESSES
+
+Assigning Static IP addresses is done through your router.  It will vary from router to router.  
+
+EXAMPLE:, for a TP-Link Archer 3150) the steps are:
+	a.	Log in and go to the Advanced tab.
+	b.	select "Network" - "DHCP Server" at the left sice.
+	c.	Go to the Address Reservation section and select Add.
+	d.	Fill in the MAC ADDRESS, IP, and Description.
+	e.	Reboot the Router and check that IPs have not changed.
+Note:  'GetDeviceIPs.js' will run and list the TP-Link devices on the LAN; including IP Address, Port, Alias, and MAC.  To run this on a PC, run the 'GetDeviceIPs.bat' file.
+
+
+C.	INSTALL THE TP-LINKSERVER.JS APPLET
+
+1.	Copy the files "TP-LinkServer_v3.js" and "TP-LinkServer_v3.bat" (PC install) to a convenient location on your bridge computer.  My install was at "C:\\TPLink" which greatly shortened the path in the batch files.
+
+2.	(Windows PCs) Open the batch file "TP-LinkServer.bat" and edit to change the directory to where the files were copied.  Test this file.  It should open a window similar to the below:
+
+		Sun 05/28/2017
+		12:27 PM
+		v6.10.3                 - this is the node.js version
+		TP-Link Device Bridge Application
+
+3.	(Windows PCs) Schedule this file to autostart on your PC.
+
+	a.	Go to Windows Scheduler (Control Panel -> System and Security -> Administrative Tools -> Task Scheduler)
+
+	b.	'Create Basic Task' and schedule "TP-LinkServer.bat" to start every time you log on.
+
+3.	(Windows PCs) Reboot the server and log-in.  the batch file “TP-LinkServer.bat” should run automatically.  This should start the server in a separate window on your display.
+
+
+D.	INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
+
+1.	Log in to SmartThings IDE.  (You may have to create an acccount.)
+
+2.	After log in, go to "My Locations" and select your current location.
+
+3.	Go to "My Device Handler" and select "+ Create New Device Handler".  You will need to do this for each device type you install.
+
+3.	Select the tab "From Code".
+
+4.	Open the GROOVY file associated with your device and copy the contents.
+
+5.	Past the contents into the the IDE window.  Select "Create" at the bottom.
+
+6.	On the next page that opens, click “Publish”, then “For Me” near the top-right of the page. 
+
+
+E.	INSTALL THE ACTUAL DEVICES ON SMARTTHINGS
+
+1.	Go to "My Devices" in IDE, click on New Device in the top right corner (you will repeat this step for each of the outlets you have)
+
+  o	Name - enter a name for the product *i.e., “TP-Link HS-100", "TP-Link HS-200", "TP-Link LB-120", TP-Link LB-130").
+
+  o	Label - enter a label, this is what will show in the SmartThings app, (i.e., “Den Lamp”, "Bedroom Fan").
+
+  o	Device Network Id - enter a unique ID (i.e., “LB100-1”, “LB120-1”, and “LB120-2”).
+
+  o	Type - select the appropriate groovy file name from the drop down list (should be near the bottom of the list).
+
+  o	Version - Published
+
+  o	Location and Hub - select for your setup
+
+  o	Group - leave blank for now, you can assign to a room later through the app
+
+  o	 Click Create
+
+2.	Open SmartThings on your smart phone and select your device.  Go to the Settings page.
+	a.	Device IP.  Enter the IP Address for your TP Link device.
+	b.	Gateway IP.  Enter the IP Address of the server PC.
+
+3.	Test the functions of your device.
+
+
+F.	SET YOUR WINDOWS PC TO AUTO-RESTART (WINDOWS PC ONLY)
+
+1.	Set Windows to automatically Log you in.  See site :
+		https://www.cnet.com/how-to/automatically-log-in-to-your-windows-10-pc1)
+
+2.	Go to the BIOS power setting and set PC to NEVER go into standby.
+
+3.	Reboot your PC. It should automatically run the node app. 
+
+4.	Test your device(s).
+
+5.	(You can now disconnect /power off monitor, mouse, and keyboard.)
