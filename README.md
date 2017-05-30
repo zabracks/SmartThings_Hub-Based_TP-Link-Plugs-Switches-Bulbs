@@ -8,15 +8,13 @@ Features:
 
 a. Single server for bulbs, plugs. and switches.
 
-b. No separate API files/structure.
-
-c. Controls following TP-Link bulbs/functions:
+b. Controls following TP-Link bulbs/functions:
 
   1)  HS100 Plug and HS-200 switch, ON/OFF (tested)
   
   2)  HS105 and HS110 Plugs, ON/OFF (NOT tested - assume same as HS100)
   
-  3)  HS110 Plug with Energy Monitor Functions (Tested by SmartThings user)
+  3)  NEW - HS110 Plug with Energy Monitor Functions (Tested by SmartThings user)
   
   3)  LB100 and LB110 bulbs, ON/OFF and Brightness (tested on LB-120)
   
