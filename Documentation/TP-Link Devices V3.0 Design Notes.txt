@@ -79,8 +79,7 @@ IV.	Division between Device Handlers and 'TP-LinkServer.js'.
 
 V.	'TP-LinkServer.js' design notes.
 	a.	The underlying operation of 'TP-LinkServer.js is node.js.
-		The applet requires 'http' and 'dgram' to operate and
-		'fs' if logging to a file is implemented.
+		The applet requires 'http', 'net' and 'fs' to operate.
 	b.	The HTTP Port is set to 8082 - hard coded into the Device
 		Handlers as well as the applet.
 	c.	The device DGRAM Port to the device is set to '9999', as is
@@ -95,14 +94,31 @@ V.	'TP-LinkServer.js' design notes.
 		3.	'deviceCommand' will process the command with the
 			device.
 	f.	Processing device commands via UDP.
-		1.	A 4 second 'timeout' is programmed and if met, an
-			error code is sent to the DH for processing.
-		2.	All other protocol errors will also cause an 
-			error code to the DH for processing.
-		3.	UDP sockets are being used instead of TCP sockets
-			due to some splitting of device response over two
-			data packets when requesting energy data.  This does
-			not happen on UDP (or has not been noticed).
+		1.	Proved to cause an error. No response from bulb on
+			emeter command for 29 day month.  Worked under TCP.
+	g.	Processing device commands vis TCP
+		1.	Discovered that the TP-Link bulb would break a command
+			response (emeter for a month) into two separate
+			packets.  Adapted applet to conconate then decrypt the 
+			responses received within 1/2 second.
+		2.	Socket timeout set at 4 seconds.  Will receive comms
+			error if captured.
+		3.	Other errors are socket error and invalid.  All are
+			returned to SmartThings as comms error.  All are also
+			logged in an error log text file.
+	h.	Logging data
+		1.	Node.js console logs
+			a.	The time, IP, and command sent
+			b.	Results of the sent command:
+				1)	Sent to SmartThings
+				2)	Explicit error condition
+			c.	Any node.js error not captured by the program.
+		2.	Text file 'error.log'
+			a.	The date/time and error condition logged.
+			b.	Any reboot of the node.js console
+	i.	'TP-LinkSever.bat' file is set to start the node.js console
+		running the applet.  If the applet exits, the bat file
+		AUTOMATICALLY restarts the applet in the same window.
 
 VI.	Bulb Device Handler design notes.
 	a.	State-Machine. The DH - applet - device interface uses
