@@ -1,10 +1,10 @@
 # New-TP-Link UNDER TEST - DO NOT DOWNLOAD
 Test version to verify total compatibility
-#TP-Link Bulb, Plug, and Switch Integration with SmartThing
+# TP-Link Bulb, Plug, and Switch Integration with SmartThing
 
 Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
 
-Features:
+# Features:
 
 a. Single server for bulbs, plugs. and switches.
 
@@ -26,7 +26,7 @@ c. Visual indication of a TP-Link device off-line.
 
 d. Interfaces to an OPTIONAL TP-LinkBridge device handler. This DH allows checking the operational status of the TP-LinkServer.js applet and also allows a reboot of the PC from SmartThings. The TP-LinkBridge is NOT required.
 
-#Pre-requisites:
+# Pre-requisites:
 
 A bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously.  Examples:
 
@@ -36,7 +36,13 @@ b.  Raspberry PI
 
 Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
-#Files
+# Installation:
+
+Initial:  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
+
+Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
+
+# Files:
 
 Top Directory.  Contains the 'TP-LinkServer_v3.js' and windows 'TP-LinkServer_v3.bat' files for the bridge installation.
 
@@ -46,8 +52,4 @@ Utilities.  'cmdPrompt.bat' is a windows command prompt window to the current di
 
 Documentation.  Installation instructions, Design Notes, and Interface description.
 
-#Installation
 
-Initial:  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
-
-Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
