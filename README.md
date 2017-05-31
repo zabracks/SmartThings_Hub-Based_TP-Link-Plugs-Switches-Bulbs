@@ -46,7 +46,9 @@ Static IP address for the bridge and TP-Link devices.  (done through your WiFi r
 
 # Installation:
 
-Initial:  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
+Installation instructions can be found in the documentation folder.
+
+New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
 
 Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
 
@@ -59,5 +61,3 @@ DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device 
 Utilities.  'cmdPrompt.bat' is a windows command prompt window to the current directory.  The tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
 
 Documentation.  Installation instructions, Design Notes, and Interface description.
-
-
