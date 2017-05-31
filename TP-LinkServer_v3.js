@@ -40,7 +40,7 @@ function onRequest(request, response){
 
 		default:
 			console.log("Invalid Command received from SmartThings")
-			response.setHeader("cmd-response", "commError")
+			response.setHeader("cmd-response", "TcpTimeout")
 			fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### Invalid Command: " + command)
 			response.end()
 	}
@@ -69,6 +69,12 @@ function processDeviceCommand(request, response) {
 			response.setHeader("cmd-response", data)
 			response.end()
 			socket.end()
+		} else {
+			response.setHeader("cmd-response", "TcpTimeout")
+			response.end()
+			socket.end()
+			console.log("##### commsError:  Communications Timeout #####")
+			fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### Comms error with device: " + deviceIP)
 		}
 	}
 //	---------------------------------------------------------------------------
@@ -77,16 +83,8 @@ function processDeviceCommand(request, response) {
 //	---------------------------------------------------------------------------
 	}).on('timeout', () => {
 		socket.end()
-		response.setHeader("cmd-response", 'commError')
-		console.log("##### commsError:  Communications Timeout #####")
-		fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### No Comms with device: " + deviceIP)
-		response.end()
 	}).on('error', (err) => {
 		socket.end()
-		response.setHeader("cmd-response", 'commError')
-		console.log("##### commsError:  Communications Data Error #####")
-		fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### Comms error with device: " + deviceIP)
-		response.end()
 	})
 //	---------------------------------------------------------------------------
 	function encrypt(input) {
