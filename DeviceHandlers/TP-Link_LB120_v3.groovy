@@ -1,6 +1,6 @@
 /*
 TP-Link LB120 Device Handler
-FOR USE ONLY WITH 'TP-LinkServer_v3js'
+FOR USE ONLY WITH 'TP-LinkServer_v3.js'
 
 Copyright 2017 Dave Gutheinz
 
@@ -132,7 +132,7 @@ private sendCmdtoServer(command, action){
 	))
 }
 def commandResponse(response){
-	if (response.headers["cmd-response"] == "commError") {
+	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod commandResponse", isStateChange: true)
      } else {
@@ -142,7 +142,7 @@ def commandResponse(response){
 	}
 }
 def refreshResponse(response){
-	if (response.headers["cmd-response"] == "commError") {
+	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod refreshResponse", isStateChange: true)
      } else {

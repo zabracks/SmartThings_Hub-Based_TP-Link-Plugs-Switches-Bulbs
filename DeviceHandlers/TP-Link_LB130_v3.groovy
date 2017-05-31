@@ -1,6 +1,6 @@
 /*
 TP-Link LB130 Device Handler
-FOR USE ONLY WITH 'TP-LinkServer_v3js'
+FOR USE ONLY WITH 'TP-LinkServer_v3.js'
 
 Copyright 2017 Dave Gutheinz
 
@@ -75,8 +75,8 @@ metadata {
 			state "colorTemp", label: '${currentValue}K'
 		}
 		standardTile("bulbMode", "bulbMode", width: 3, height: 2, decoration: "flat") {
-			state "normal", label:'Normal\n\rMode', action:"setModeCircadian", backgroundColor:"#ffffff", nextState: "circadian"
-			state "circadian", label:'Circadian\n\rMode', action:"setModeNormal", backgroundColor:"#00a0dc", nextState: "normal"
+			state "normal", label:'Normal Mode', action:"setModeCircadian", backgroundColor:"#ffffff", nextState: "circadian"
+			state "circadian", label:'Circadian Mode', action:"setModeNormal", backgroundColor:"#00a0dc", nextState: "normal"
 		}
 		standardTile("refresh", "capability.refresh", width: 3, height: 2,  decoration: "flat") {
 			state ("default", label:"Refresh", action:"refresh.refresh", icon:"st.secondary.refresh", backgroundColor:"#ffffff")
@@ -144,7 +144,7 @@ private sendCmdtoServer(command, action){
 	))
 }
 def commandResponse(response){
-	if (response.headers["cmd-response"] == "commError") {
+	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod commandResponse", isStateChange: true)
      } else {
@@ -154,7 +154,7 @@ def commandResponse(response){
 	}
 }
 def refreshResponse(response){
-	if (response.headers["cmd-response"] == "commError") {
+	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod refreshResponse", isStateChange: true)
      } else {
