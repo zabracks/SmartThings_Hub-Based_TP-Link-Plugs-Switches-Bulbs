@@ -1,12 +1,21 @@
 const dgram = require('dgram')
+var os = require('os')
 
-var tplinkDeviceList = {}
 
 //	-------------------------------------------------------------------
 console.log("List of TP-Link Devices with IP, MAC, Alias, and Model")
-var bridgeIP = '192.168.0.110'
+var interfaces = os.networkInterfaces()
+for (var k in interfaces) {
+	for (var k2 in interfaces[k]) {
+		var address = interfaces[k][k2]
+		if (address.family === 'IPv4' && !address.internal) {
+			var bridgeIP = address.address
+		}
+	}
+}
 var bridgePort = 8090
 var socket = dgram.createSocket('udp4')
+var tplinkDeviceList = {}
 setTimeout(displayDevices, 4000)
 socket.on('error', function (err) {
 	console.error('Client UDP error')
@@ -19,13 +28,11 @@ socket.on('message', function (msg, rinfo) {
 	var device = JSON.parse(decrypt(msg).toString('ascii')).system.get_sysinfo
 	if (device.mic_type == "IOT.SMARTBULB") {
 		tplinkDNI = device.mic_mac
-		tplinkDevice['deviceMac'] = tplinkDNI
 	} else {
 		tplinkDNI = device.mac.replace(/:/g, "")
-		tplinkDevice['deviceMac'] = tplinkDNI
 	}
 	tplinkDevice['deviceIP'] = rinfo.address
-	tplinkDevice['devicePort'] = rinfo.port
+//	tplinkDevice['devicePort'] = rinfo.port
 	tplinkDevice['deviceModel'] = device.model
 	tplinkDevice['deviceAlias'] = device.alias
 	tplinkDeviceList[tplinkDNI] = tplinkDevice
