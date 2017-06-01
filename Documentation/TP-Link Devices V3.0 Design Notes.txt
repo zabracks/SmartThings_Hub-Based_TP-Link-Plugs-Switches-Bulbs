@@ -100,7 +100,7 @@ V.	'TP-LinkServer.js' design notes.
 		1.	Discovered that the TP-Link bulb would break a command
 			response (emeter for a month) into two separate
 			packets.  Adapted applet to conconate then decrypt the 
-			responses received within 1/2 second.
+			responses received within 1 second.
 		2.	Socket timeout set at 4 seconds.  Will receive comms
 			error if captured.
 		3.	Other errors are socket error and invalid.  All are
