@@ -28,6 +28,8 @@ d. Interfaces to an OPTIONAL TP-LinkBridge device handler. This DH allows checki
 
 # Compatibility with Version 2.3 Device Handlers and Node.js applet
 
+Testing was completed on two MS Windows 10 PC, one for development and one for deployment.  The development PC has node.js version 6.10.3.  The deployment PC has a version in the 6.9 series.  Test results were identical on each PC.  The final version tests were error-free on the SmartThings log except as expected when a TCP time out was reported.  The node.js console also had no errors aside from programmed, except in HS110 testing against 'TP-LinkServer.js' version 2.3, as noted below.
+
 a.  New (version 3) device handlers.  Excpet for the HS110, these device handlers are compatible with the prevision version (2.3) of the 'TP-LinkServer.js applet.  The console will log some errors on communications timeout; however, the error will not affect the device and does not forward to the SmartThings cloud.
 
 b.  Previous (version 2.3) device handlers.  The previous set of version 2.3 device handlers are compatible with the version 3.0 'TP-LinkServer_v3.js' applet.  No errors were recorded in final testing.
