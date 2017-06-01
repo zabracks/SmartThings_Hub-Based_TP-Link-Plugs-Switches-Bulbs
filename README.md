@@ -36,4 +36,5 @@ DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device 
 Utilities.  
 -  Windows batch file 'cmdPrompt.bat' is a windows command prompt window to the current directory.  
 -  The tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
+
 Documentation.  Installation instructions, Design Notes, and Interface description.
