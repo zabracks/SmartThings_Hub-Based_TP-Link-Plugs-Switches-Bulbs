@@ -221,6 +221,14 @@ def engrStatsResponse(response) {
 			sendEvent(name: "monthTotalE", value: 0, descriptionText: "Bulb is not a HS110", isStateChange: true)
 	    } else {
 			def dayList = cmdResponse["emeter"]["get_daystat"].day_list
+			def dataMonth = dayList[0].month
+	        def currentMonth = state.monthToday
+	        def addedDays = 0
+			if (currentMonth == dataMonth) {
+	        	addedDays = prevMonthDays
+			} else {
+				addedDays = 0
+			}
 			for (int i = 0; i < dayList.size(); i++) {
 			    def engrData = dayList[i]
 				if(engrData.day == state.dayToday && engrData.month == state.monthToday) {
@@ -228,8 +236,8 @@ def engrStatsResponse(response) {
 			    } else {
 			    	monTotEnergy += engrData.energy
 			    }
-			    def adjEngDay = engrData.day + prevMonthDays
-				if (engrData.day + prevMonthDays <= weekEnd && engrData.day + prevMonthDays >= weekStart) {
+		        def adjustDay = engrData.day + addedDays
+				if (adjustDay <= weekEnd && adjustDay >= weekStart) {
 			        wkTotEnergy += engrData.energy
 				}
 			}
@@ -237,7 +245,7 @@ def engrStatsResponse(response) {
 			state.monTotDays = monTotDays
 			state.monTotEnergy = monTotEnergy
 			state.wkTotEnergy = wkTotEnergy
-			if (state.dayToday == 31 || state.monthToday -1 == dayList[1].month) {
+			if (state.dayToday == 31 || state.monthToday -1 == dataMonth) {
 				log.info "Updated 7 and 30 day energy consumption statistics"
 		        wkTotEnergy = Math.round(1000*wkTotEnergy) / 1000
 		        monTotEnergy = Math.round(1000*monTotEnergy) / 1000
