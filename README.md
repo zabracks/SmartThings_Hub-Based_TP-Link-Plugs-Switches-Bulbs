@@ -2,22 +2,21 @@
 Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
 
 # TP-Link Devices Supported:
-a.  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
-b.  HS110 (on/off and energy monitor functions) - TP-Link_HS110_v3.groovy
-c.  LB100, LB110 (on/off and brightness) - TP-Link_LB100_110_v3.groovy
-d.  LB120 (on/off, brightness, color temperature and circadian mode) - TP-Link_LB120_v3.groovy
-e.  LB130 (on/off, brightness, color temperature, circadian and color) - TP-Link_LB13_v3.groovy
+-  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
+-  HS110 (on/off and energy monitor functions) - TP-Link_HS110_v3.groovy
+-  LB100, LB110 (on/off and brightness) - TP-Link_LB100_110_v3.groovy
+-  LB120 (on/off, brightness, color temperature and circadian mode) - TP-Link_LB120_v3.groovy
+-  LB130 (on/off, brightness, color temperature, circadian and color) - TP-Link_LB13_v3.groovy
 
 Installation instructions can be found in the documentation folder.
 -  New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
 -  Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
 
 # Pre-requisites:
-A bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously.  Examples:
-a.  Window PC, Laptop, Tablet, Stick Computer.  Must be set to auto start/restart and auto user log-in on start.
-b.  Raspberry PI
-
-Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
+-  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously.  Examples:
+   --  Window PC, Laptop, Tablet, Stick Computer.  Must be set to auto start/restart and auto user log-in on start.
+   --  Raspberry PI
+-  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
 # Compatibility with Version 2.3 Device Handlers and Node.js applet
 
