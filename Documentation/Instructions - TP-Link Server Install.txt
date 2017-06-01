@@ -1,4 +1,4 @@
-Installation Instructions for the TP-Link Devices to SmartThings
+
 
 These instructions are for the installation of the TP-Link devices into the SmartThings platform.  There are four aspects of this installation:
 
@@ -21,10 +21,6 @@ DeviceHandlers directory
 •	“TP-Link_LB130_v3.0.grooy” – Device Handler for the LB130.
 •	“TP-Link SmartThing Implementation.pdf” – operational description.
 
-Utilities directory
-•	“GetDeviceIPs.js" and "GetDeviceIPs.bat" - a utility to derive a list of the TP-Link devices on you LAN.  Information SmartThings DH installation.
-•	“CmdPrompt.bat" - will open the command prompt in the current directory (wherever it may be placed).
-
 Documentation Directory
 •	“Instructions - TP-Link Server Install.txt" - these instructions
 •	“Update from earlier versions.txt" - simplifed instructions to update only.
@@ -34,20 +30,20 @@ Documentation Directory
 
 UPDATE INSTALLATIONS
 
-If you are updating, read the instructions in "Instructions - Update from version 2.x.txt".  These are greatly simplified.
+If you are updating, read the instructions in "Update from earlier versions.pdf".  These are greatly simplified.
 
 
 PRE-REQUISITES
 
 -	A bridge device that is always on and can run the node.js environment.  Must be on the same LAN as the SmartThings and the TP-Link devices.
-	-	Windows PC, Stick PC, or tablet
-	-	Raspberry PI
-	-	MAC
+-	Windows PC, Stick PC, or tablet
+-	Raspberry PI
+-	MAC
 - 	Static IP address for your gateway PC. Assign through your router.
 - 	Static IP address for each of your TP Link devices
 
 
-BASIC INSTALLATION STEPS
+BASIC INSTALLATION STEPS - Index
 
 A.	Install node.js application (free) (see below).
 B.	Assign static IP addresses for your Bridge (PC or otherwise).
@@ -71,12 +67,11 @@ B.	ASSIGN STATIC IP ADDRESSES
 Assigning Static IP addresses is done through your router.  It will vary from router to router.  
 
 EXAMPLE:, for a TP-Link Archer 3150) the steps are:
-	a.	Log in and go to the Advanced tab.
-	b.	select "Network" - "DHCP Server" at the left sice.
-	c.	Go to the Address Reservation section and select Add.
-	d.	Fill in the MAC ADDRESS, IP, and Description.
-	e.	Reboot the Router and check that IPs have not changed.
-Note:  'GetDeviceIPs.js' will run and list the TP-Link devices on the LAN; including IP Address, Port, Alias, and MAC.  To run this on a PC, run the 'GetDeviceIPs.bat' file.
+a.	Log in and go to the Advanced tab.
+b.	select "Network" - "DHCP Server" at the left sice.
+c.	Go to the Address Reservation section and select Add.
+d.	Fill in the MAC ADDRESS, IP, and Description.
+e.	Reboot the Router and check that IPs have not changed.
 
 
 C.	INSTALL THE TP-LINKSERVER.JS APPLET
@@ -92,11 +87,11 @@ C.	INSTALL THE TP-LINKSERVER.JS APPLET
 
 3.	(Windows PCs) Schedule this file to autostart on your PC.
 
-	a.	Go to Windows Scheduler (Control Panel -> System and Security -> Administrative Tools -> Task Scheduler)
+a.	Go to Windows Scheduler (Control Panel -> System and Security -> Administrative Tools -> Task Scheduler)
 
-	b.	'Create Basic Task' and schedule "TP-LinkServer.bat" to start every time you log on.
+b.	'Create Basic Task' and schedule "TP-LinkServer.bat" to start every time you log on.
 
-3.	(Windows PCs) Reboot the server and log-in.  the batch file “TP-LinkServer.bat” should run automatically.  This should start the server in a separate window on your display.
+4.	(Windows PCs) Reboot the server and log-in.  the batch file “TP-LinkServer.bat” should run automatically.  This should start the server in a separate window on your display.
 
 
 D.	INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
@@ -120,33 +115,34 @@ E.	INSTALL THE ACTUAL DEVICES ON SMARTTHINGS
 
 1.	Go to "My Devices" in IDE, click on New Device in the top right corner (you will repeat this step for each of the outlets you have)
 
-  o	Name - enter a name for the product *i.e., “TP-Link HS-100", "TP-Link HS-200", "TP-Link LB-120", TP-Link LB-130").
+o	Name - enter a name for the product *i.e., “TP-Link HS-100", "TP-Link HS-200", "TP-Link LB-120", TP-Link LB-130").
 
-  o	Label - enter a label, this is what will show in the SmartThings app, (i.e., “Den Lamp”, "Bedroom Fan").
+o	Label - enter a label, this is what will show in the SmartThings app, (i.e., “Den Lamp”, "Bedroom Fan").
 
-  o	Device Network Id - enter a unique ID (i.e., “LB100-1”, “LB120-1”, and “LB120-2”).
+o	Device Network Id - enter a unique ID (i.e., “LB100-1”, “LB120-1”, and “LB120-2”).
 
-  o	Type - select the appropriate groovy file name from the drop down list (should be near the bottom of the list).
+o	Type - select the appropriate groovy file name from the drop down list (should be near the bottom of the list).
 
-  o	Version - Published
+o	Version - Published
 
-  o	Location and Hub - select for your setup
+o	Location and Hub - select for your setup
 
-  o	Group - leave blank for now, you can assign to a room later through the app
+o	Group - leave blank for now, you can assign to a room later through the app
 
-  o	 Click Create
+o	 Click Create
 
 2.	Open SmartThings on your smart phone and select your device.  Go to the Settings page.
-	a.	Device IP.  Enter the IP Address for your TP Link device.
-	b.	Gateway IP.  Enter the IP Address of the server PC.
+a.	Device IP.  Enter the IP Address for your TP Link device.
+b.	Gateway IP.  Enter the IP Address of the server PC.
 
 3.	Test the functions of your device.
 
 
 F.	SET YOUR WINDOWS PC TO AUTO-RESTART (WINDOWS PC ONLY)
 
-1.	Set Windows to automatically Log you in.  See site :
-		https://www.cnet.com/how-to/automatically-log-in-to-your-windows-10-pc1)
+1. Set Windows to automatically Log you in.  See site:
+
+https://www.cnet.com/how-to/automatically-log-in-to-your-windows-10-pc1)
 
 2.	Go to the BIOS power setting and set PC to NEVER go into standby.
 
@@ -155,3 +151,10 @@ F.	SET YOUR WINDOWS PC TO AUTO-RESTART (WINDOWS PC ONLY)
 4.	Test your device(s).
 
 5.	(You can now disconnect /power off monitor, mouse, and keyboard.)
+
+Installation Instructions for the TP-Link Devices to SmartThings
+
+
+Page | 1
+
+
