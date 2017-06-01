@@ -32,9 +32,10 @@ c.  HS110 device handler ('TP-Link_HS110_v3.groovy').  The new HS110 is only com
 
 # Files:
 Top Level.  Contains the 'TP-LinkServer_v3.js' and windows 'TP-LinkServer_v3.bat' files for the bridge installation.
+
 DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device applicability.
-Utilities.  
--  Windows batch file 'cmdPrompt.bat' is a windows command prompt window to the current directory.  
--  The tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
+
+Utilities.  Windows batch file 'cmdPrompt.bat'.  he tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
 
 Documentation.  Installation instructions, Design Notes, and Interface description.
+
