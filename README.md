@@ -14,7 +14,9 @@ Installation instructions can be found in the documentation folder.
 
 # Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously.  Examples:
+
    --  Window PC, Laptop, Tablet, Stick Computer.  Must be set to auto start/restart and auto user log-in on start.
+   
    --  Raspberry PI
 -  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
