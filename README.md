@@ -38,9 +38,9 @@ c.  HS110 device handler ('TP-Link_HS110_v3.groovy').  The new HS110 is only com
 
 A bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously.  Examples:
 
-    1.  Window PC, Laptop, Tablet, Stick Computer.  Must be set to auto start/restart and auto user log-in on start.
+a.  Window PC, Laptop, Tablet, Stick Computer.  Must be set to auto start/restart and auto user log-in on start.
 
-    2.  Raspberry PI
+b.  Raspberry PI
 
 Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
@@ -60,8 +60,8 @@ DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device 
 
 Utilities.  
 
-    a.  Windows batch file 'cmdPrompt.bat' is a windows command prompt window to the current directory.  
+   a.  Windows batch file 'cmdPrompt.bat' is a windows command prompt window to the current directory.  
 
-    b.  The tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
+   b.  The tool file 'GetDeviceIPs.js' and windows companion 'GetDeviceIPs.bat' will pop a window on your device with the TP-Link devices, IP, MAC Address, and Alias.  Useful in installation.
 
 Documentation.  Installation instructions, Design Notes, and Interface description.
