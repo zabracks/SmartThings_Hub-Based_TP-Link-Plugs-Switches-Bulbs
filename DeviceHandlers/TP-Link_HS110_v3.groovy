@@ -14,8 +14,7 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
 ANY KIND, either express or implied. See the License for the specific language governing 
 permissions and limitations under the License.
 
-Supported models and functions:  This device supports the TP-Link HS100, HS105, HS110, and
-HS200 devices.  It supports the on/off function only.
+Supported models and functions:  This device supports the TP-Link HS110.
 
 Notes: 
 1.	This Device Handler requires an operating Windows 10 PC Bridge running version 3.0 of
@@ -25,6 +24,10 @@ Notes:
 
 Update History
 	06/01/2017	- Initial release of HS-110 handler
+    06/03/2017  - Added refresh after encountering error during on/off command.
+                  Added timeouts to updated function.  SmartThings runs updated twice
+                  and the timeouts preclude other calls running twice and causing
+                  collisions within the interface.
 */
 metadata {
 	definition (name: "TP-Link HS110", namespace: "djg", author: "Dave Gutheinz") {
@@ -89,8 +92,8 @@ def updated() {
     unschedule()
 	runEvery15Minutes(refresh)
 	schedule("0 30 0 * * ?", setCurrentDate)
-	setCurrentDate()
-    runIn(6, refresh)
+    runIn(2, refresh)
+    runIn(6, setCurrentDate)
 }
 //	---------------------------------------------------------------------------
 //	----- BASIC PLUG COMMANDS -------------------------------------------------
@@ -108,9 +111,8 @@ def onOffResponse(response){
 	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod onOffResponse", isStateChange: true)
-    } else {
-		refresh()
-	}
+    }
+	refresh()
 }
 def refreshResponse(response){
 	if (response.headers["cmd-response"] == "TcpTimeout") {
@@ -263,7 +265,6 @@ def engrStatsResponse(response) {
 //	----- SET CURRENT DATE AND GET DATE DATA FOR PROCESSING -------------------
 def setCurrentDate() {
 	sendCmdtoServer('{"time":{"get_time":null}}', "currentDateResponse")
-    runIn(4, getWkMonStats)
 }
 def currentDateResponse(response) {
 	if (response.headers["cmd-response"] == "TcpTimeout") {
@@ -278,6 +279,7 @@ def currentDateResponse(response) {
 	    sendEvent(name: "dateUpdate", value: "${setDate.year}/${setDate.month}/${setDate.mday}")
 	    log.info "Current Date Updated to ${setDate.year}/${setDate.month}/${setDate.mday}"
 	}
+    getWkMonStats()
 }
 def getDateData(){
 	state.dayToday = getDataValue("dayToday") as int

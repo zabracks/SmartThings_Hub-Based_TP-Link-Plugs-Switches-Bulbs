@@ -31,6 +31,9 @@ Update History
                   4.  Modified coloring and added a Waiting state that displays whenever
                   	  a function is actuated to indicate waiting for response from the
                       Bridge.
+	06/02/2017	- Added updated function to force 15 minute refresh (it was occuring only
+    			  on some devices with same DH.
+                  Cause refresh to occur after error on on/off response (may eliminate error)
 */
 
 metadata {
@@ -42,9 +45,8 @@ metadata {
 	}
 tiles (scale : 2) {
 		standardTile("switch", "device.switch", width: 6, height: 4, canChangeIcon: true) {
-			state "on", label:'${name}', action:"switch.off", icon:"st.switches.switch.on", backgroundColor:"#00a0dc",nextState:"turningOff"
+			state "on", label:'${name}', action:"switch.off", icon:"st.switches.switch.on", backgroundColor:"#00a0dc",nextState:"waiting"
 			state "off", label:'${name}', action:"switch.on", icon:"st.switch.off", backgroundColor:"#ffffff",nextState:"waiting"
-			state "turningOff", label:'waiting', action:"switch.off", icon:"st.switches.switch.on", backgroundColor:"#15EE10",nextState:"waiting"
 			state "waiting", label:'${name}', action:"switch.on", icon:"st.switches.switch.on", backgroundColor:"#15EE10",nextState:"on"
             state "offline", label:'Comms Error', action:"switch.on", icon:"st.switch.off", backgroundColor:"#e86d13",nextState:"waiting"
 }
@@ -59,16 +61,18 @@ preferences {
 	input("deviceIP", "text", title: "Device IP", required: true, displayDuringSetup: true)
 	input("gatewayIP", "text", title: "Gateway IP", required: true, displayDuringSetup: true)
 }
+def updated() {
+    unschedule()
+	runEvery15Minutes(refresh)
+    runIn(2, refresh)
+}
 def on() {
-	log.info "${device.name} ${device.label}: Turning ON"
 	sendCmdtoServer('{"system":{"set_relay_state":{"state": 1}}}', "onOffResponse")
 }
 def off() {
-	log.info "${device.name} ${device.label}: Turning OFF"
 	sendCmdtoServer('{"system":{"set_relay_state":{"state": 0}}}', "onOffResponse")
 }
 def refresh(){
-	log.info "Polling ${device.name} ${device.label}"
 	sendEvent(name: "switch", value: "waiting", isStateChange: true)
 	sendCmdtoServer('{"system":{"get_sysinfo":{}}}', "refreshResponse")
 }
@@ -88,10 +92,8 @@ def onOffResponse(response){
 	if (response.headers["cmd-response"] == "TcpTimeout") {
 		log.error "$device.name $device.label: Communications Error"
 		sendEvent(name: "switch", value: "offline", descriptionText: "ERROR - OffLine - mod onOffResponse", isStateChange: true)
-     } else {
-		log.info "On/Off command response received from server!"
-		refresh()
 	}
+	refresh()
 }
 def refreshResponse(response){
 	if (response.headers["cmd-response"] == "TcpTimeout") {

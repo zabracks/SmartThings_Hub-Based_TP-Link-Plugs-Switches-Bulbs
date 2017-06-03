@@ -14,8 +14,7 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
 ANY KIND, either express or implied. See the License for the specific language governing 
 permissions and limitations under the License.
 
-Supported models and functions:  This device supports the TP-Link HS100, HS105, HS110, and
-HS200 devices.  It supports the on/off function only.
+Supported models and functions:  This device supports the TP-Link LB100 and LB120.
 
 Notes: 
 1.	This Device Handler requires an operating Windows 10 PC Bridge running version 3.0 of
@@ -42,15 +41,12 @@ metadata {
         capability "Sensor"
 		capability "Actuator"
 	}
-	tiles {
-//	tiles(scale: 2) {
+	tiles(scale: 2) {
 		multiAttributeTile(name:"switch", type: "lighting", width: 6, height: 4, canChangeIcon: true){
 			tileAttribute ("device.switch", key: "PRIMARY_CONTROL") {
 				attributeState "on", label:'${name}', action:"switch.off", icon:"st.switches.light.on", backgroundColor:"#00a0dc",
-				nextState:"turningOff"
-				attributeState "off", label:'${name}', action:"switch.on", icon:"st.switches.light.off", backgroundColor:"#ffffff",
 				nextState:"waiting"
-				attributeState "turningOff", label:'waiting', action:"switch.off", icon:"st.switches.light.on", backgroundColor:"#15EE10",
+				attributeState "off", label:'${name}', action:"switch.on", icon:"st.switches.light.off", backgroundColor:"#ffffff",
 				nextState:"waiting"
 				attributeState "waiting", label:'${name}', action:"switch.on", icon:"st.switches.light.on", backgroundColor:"#15EE10",
 				nextState:"on"
@@ -73,25 +69,20 @@ preferences {
 	input("gatewayIP", "text", title: "Gateway IP", required: true, displayDuringSetup: true)
 }
 def on() {
-	log.info "${device.name} ${device.label}: Turning ON"
 	sendCmdtoServer('{"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{"on_off":1}}}', "commandResponse")
 }
 def off() {
-	log.info "${device.name} ${device.label}: Turning OFF"
 	sendCmdtoServer('{"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{"on_off":0}}}', "commandResponse")
 }
 def setLevel(percentage) {
 	percentage = percentage as int
-	log.info "${device.name} ${device.label}: Setting Brightness to ${percentage}%"
-	sendEvent(name: "switch", value: "waiting", isStateChange: true)
     sendCmdtoServer("""{"smartlife.iot.smartbulb.lightingservice":{"transition_light_state":{"ignore_default":1,"on_off":1,"brightness":${percentage}}}}""", "commandResponse")
 }
 def refresh(){
-	log.info "Polling ${device.name} ${device.label}"
-	sendEvent(name: "switch", value: "waiting", isStateChange: true)
 	sendCmdtoServer('{"system":{"get_sysinfo":{}}}', "refreshResponse")
 }
 private sendCmdtoServer(command, action){
+	sendEvent(name: "switch", value: "waiting", isStateChange: true)
 	def headers = [:] 
 	headers.put("HOST", "$gatewayIP:8082")   // port 8082 must be same as value in TP-LInkServerLite.js
 	headers.put("tplink-iot-ip", deviceIP)
