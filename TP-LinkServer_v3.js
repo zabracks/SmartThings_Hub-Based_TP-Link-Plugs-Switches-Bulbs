@@ -3,6 +3,7 @@ TP-linkServer.js V3.0.
 This is a node.js bridge applet supporting TP-Link Devices.  There is a companion applet, "TP-LinkBridge.js" that is OPTIONAL.  The companion applet with the associated Device Handler provides for monitoring of the bridge device, and if a PC will allow for remote PC reboot if either of the applets are running.
 History:
 06-01-2017 - Release of update supporting 3.0 device handlers and the HS110 energy monitoring functions.  Added an error log file.
+06-17-2017	- Changes fs.appendFile to fs.appendFileSync to support function depreciation in Node.js version 8.
 */
 //	---------------------------------------------------------------------------
 var http = require('http')
@@ -13,7 +14,7 @@ var server = http.createServer(onRequest)
 var serverPort = '8082'  // Same is in various groovy files.
 server.listen(serverPort)
 console.log("TP-Link Device Bridge Application")
-fs.appendFile("error.log", "\n\r\n\r" + new Date() + "TP-Link Device Bridge Error Log")
+fs.appendFileSync("error.log", "\n\r\n\r" + new Date() + "TP-Link Device Bridge Error Log")
 //	---------------------------------------------------------------------------
 function onRequest(request, response){
 	console.log(" ")
@@ -41,7 +42,7 @@ function onRequest(request, response){
 		default:
 			console.log("Invalid Command received from SmartThings")
 			response.setHeader("cmd-response", "TcpTimeout")
-			fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### Invalid Command: " + command)
+			fs.appendFileSync("error.log", "\n\r\n\r" + new Date() + "#### Invalid Command: " + command)
 			response.end()
 	}
 }
@@ -74,7 +75,7 @@ function processDeviceCommand(request, response) {
 			response.end()
 			socket.end()
 			console.log("##### commsError:  Communications Timeout #####")
-			fs.appendFile("error.log", "\n\r\n\r" + new Date() + "#### Comms error with device: " + deviceIP)
+			fs.appendFileSync("error.log", "\n\r\n\r" + new Date() + "#### Comms error with device: " + deviceIP)
 		}
 	}
 //	---------------------------------------------------------------------------
