@@ -1,6 +1,8 @@
 # TP-Link Bulb, Plug, and Switch Integration with SmartThing Version 3
 Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
 
+06-17-2017 - Updated 'TP-LinkServer_v3.js' to correct node.js version 8 depreciation of fs.appendFile w/o callback (caused error message).  Tested changes to assure full compatibility with current and previous versions on node.js and the device handlers.
+
 # TP-Link Devices Supported:
 -  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
 -  HS110 (on/off and energy monitor functions) - TP-Link_HS110_v3.groovy
