@@ -1,14 +1,17 @@
 # TP-Link Bulb, Plug, and Switch Integration with SmartThing Version 3
 Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
 
-06-17-2017 - Updated 'TP-LinkServer_v3.js' to correct node.js version 8 depreciation of fs.appendFile w/o callback (caused error message).  Tested changes to assure full compatibility with current and previous versions on node.js and the device handlers.
+07-04-2017.  Added new Device Handlers for TP-Link Bulbs with Energy Monitor Functions.  Edited other files w/o function change for common format for ease of maintenance.  ALL CHANGES ARE SUPERFICIAL AND DO NOT REQUIRE RELOAD.
 
 # TP-Link Devices Supported:
 -  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
--  HS110 (on/off and energy monitor functions) - TP-Link_HS110_v3.groovy
--  LB100, LB110 (on/off and brightness) - TP-Link_LB100_110_v3.groovy
--  LB120 (on/off, brightness, color temperature and circadian mode) - TP-Link_LB120_v3.groovy
--  LB130 (on/off, brightness, color temperature, circadian and color) - TP-Link_LB13_v3.groovy
+-  HS110 with energy monitor functions - TP-Link_HS110_Emeter_v3.groovy
+-  LB100, LB110 - TP-Link_LB100_110_v3.groovy
+-  LB110 with energy monitor functions - TP-Link_LB110_Emeter_v3.groovy
+-  LB120 - TP-Link_LB120_v3.groovy
+-  LB120 with energy monitor functions - TP-Link_LB120_Emeter_v3.groovy
+-  LB130 - TP-Link_LB13_v3.groovy
+-  LB120 with energy monitor functions - TP-Link_LB130_Emeter_v3.groovy
 
 Installation instructions can be found in the documentation folder.
 -  New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
