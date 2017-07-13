@@ -12,10 +12,10 @@ c.	TP-Link Bridge (OPTIONAL)
 */
 
 //----- Options for this program -----------------------------------
-var oldNode = "no"	//	no means receent node.js installation	
-var logFile = "yes"	//	Yes for log file.
-//var oldNode = "yes"	//	yes means pre-ver 6 node.js installation	
-//var logFile = "no"	//	Must be no when oldNode is yes.
+//var oldNode = "no"	//	no means receent node.js installation	
+//var logFile = "yes"	//	Yes for log file.
+var oldNode = "yes"	//	yes means pre-ver 6 node.js installation	
+var logFile = "no"	//	Must be no when oldNode is yes.
 var hubPort = 8082	//	Synched with Device Handlers.
 //------------------------------------------------------------------
 
