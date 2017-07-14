@@ -6,14 +6,14 @@ Version 3.0.  New version with modifications to user interface, error handling, 
 https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png
 
 # TP-Link Devices Supported:
--  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
--  HS110 with energy monitor functions - TP-Link_HS110_Emeter_v3.groovy
--  LB100, LB110 - TP-Link_LB100_110_v3.groovy
--  LB110 with energy monitor functions - TP-Link_LB110_Emeter_v3.groovy
--  LB120 - TP-Link_LB120_v3.groovy
--  LB120 with energy monitor functions - TP-Link_LB120_Emeter_v3.groovy
--  LB130 - TP-Link_LB13_v3.groovy
--  LB120 with energy monitor functions - TP-Link_LB130_Emeter_v3.groovy
+-  HS100, Hs105, HS110, HS200 - TP-Link_HS_Series.groovy
+-  HS110 with energy monitor functions - TP-Link_HS110_Emeter.groovy
+-  LB100, LB110 - TP-Link_LB100_110.groovy
+-  LB110 with energy monitor functions - TP-Link_LB110_Emeter.groovy
+-  LB120 - TP-Link_LB120.groovy
+-  LB120 with energy monitor functions - TP-Link_LB120_Emeter.groovy
+-  LB130 - TP-Link_LB130.groovy
+-  LB120 with energy monitor functions - TP-Link_LB130_Emeter.groovy
 
 Installation instructions can be found in the documentation folder.
 -  New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
