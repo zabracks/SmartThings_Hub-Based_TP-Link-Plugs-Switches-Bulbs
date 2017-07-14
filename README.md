@@ -3,6 +3,8 @@ Version 3.0.  New version with modifications to user interface, error handling, 
 
 07-04-2017.  Added new Device Handlers for TP-Link Bulbs with Energy Monitor Functions.  Edited other files w/o function change for common format for ease of maintenance.  ALL CHANGES ARE SUPERFICIAL AND DO NOT REQUIRE RELOAD.
 
+https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png
+
 # TP-Link Devices Supported:
 -  HS100, Hs105, HS110, HS200 (on/off) - TP-Link_HS_Series_v3.groovy
 -  HS110 with energy monitor functions - TP-Link_HS110_Emeter_v3.groovy
