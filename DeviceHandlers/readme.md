@@ -5,10 +5,10 @@
 
 # Device Handler Installation Instructions
 
-A.  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
+a)  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
 
-a)	Log in to SmartThings IDE.  (You may have to create an acccount.)
-b)	After log in, go to "My Locations" and select your current location.
+1)	Log in to SmartThings IDE.  (You may have to create an acccount.)
+2)	After log in, go to "My Locations" and select your current location.
 
 3.	Go to "My Device Handler" and select "+ Create New Device Handler".  You will need to do this for each device type you install.
 
