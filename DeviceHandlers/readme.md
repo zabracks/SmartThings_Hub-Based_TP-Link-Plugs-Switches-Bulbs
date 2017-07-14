@@ -3,12 +3,11 @@
 07-13-2017 - Updated to common format for supportability
 07-13-2017 - Added communications path for 'Emeter' version device handlers only.
 
-# Installation Instructions
+# Device Handler Installation Instructions
 
 A.  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
 
 1.	Log in to SmartThings IDE.  (You may have to create an acccount.)
-
 2.	After log in, go to "My Locations" and select your current location.
 
 3.	Go to "My Device Handler" and select "+ Create New Device Handler".  You will need to do this for each device type you install.
