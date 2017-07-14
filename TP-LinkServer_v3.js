@@ -1,6 +1,8 @@
 /*
 TP-LinkHub - Version 1.0
 
+COMPATABILITY KEY:  HubVersion 1.0
+
 This java script uses node.js functionality to provide a hub between SmartThings and TP-Link devices.  It works with the following TP-Link integrations:
 a.	TP-Link Connect (including Discovery)
 b.	TP-Link Smart Things Integration
