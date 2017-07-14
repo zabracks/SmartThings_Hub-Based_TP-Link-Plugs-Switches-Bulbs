@@ -5,6 +5,8 @@
 
 # Device Handler Installation Instructions
 
+CPMPATABILITY:  At any time, all files within this repository are compatible; however, if you are installing a new device handler, it is suggested that you also update your other device handlers at the same time.  Currently, all device handlers have on line 7 a list of "COMPATABILITY KEYs" that link to line 4 of the Java Script.
+
 A  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
 1.	Log in to SmartThings IDE.  (You may have to create an acccount.)
 2.	After log in, go to "My Locations" and select your current location.
