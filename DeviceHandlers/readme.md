@@ -5,45 +5,30 @@
 
 # Device Handler Installation Instructions
 
-1)  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
-a)	Log in to SmartThings IDE.  (You may have to create an acccount.)
-b)	After log in, go to "My Locations" and select your current location.
-
+A  INSTALL THE DEVICE HANDLERS ON SMARTTHINGS
+1.	Log in to SmartThings IDE.  (You may have to create an acccount.)
+2.	After log in, go to "My Locations" and select your current location.
 3.	Go to "My Device Handler" and select "+ Create New Device Handler".  You will need to do this for each device type you install.
-
 3.	Select the tab "From Code".
-
 4.	Open the GROOVY file associated with your device and copy the contents.
-
 5.	Past the contents into the the IDE window.  Select "Create" at the bottom.
-
 6.	On the next page that opens, click “Publish”, then “For Me” near the top-right of the page. 
 
 B.	INSTALL THE ACTUAL DEVICES ON SMARTTHINGS
-
-Go to "My Devices" in IDE, click on New Device in the top right corner (you will repeat this step for each of the outlets you have)
-
+Go to "My Devices" in IDE, click on New Device in the top right corner (you will repeat this step for each of the outlets you have).
 1.	Name - enter a name for the product *i.e., “TP-Link HS-100", "TP-Link HS-200", "TP-Link LB-120", TP-Link LB-130").
-
 2.	Label - enter a label, this is what will show in the SmartThings app, (i.e., “Den Lamp”, "Bedroom Fan").
-
 3.	Device Network Id - enter a unique ID (i.e., “LB100-1”, “LB120-1”, and “LB120-2”).
-
 4.	Type - select the appropriate groovy file name from the drop down list (should be near the bottom of the list).
-
 5.	Version - Published
-
 6.	Location and Hub - select for your setup
-
 7.	Group - leave blank for now, you can assign to a room later through the app
-
 8.	 Click Create
 
 C.  SET UP DEVICE AND HUB IP FOR EACH DEVICE
-
 For each device, 0pen SmartThings on your smart phone and select your device.  Go to the Settings page.
-a.	Device IP.  Enter the IP Address for your TP Link device.
-b.	Gateway IP.  Enter the IP Address of the server PC.
+1.	Device IP.  Enter the IP Address for your TP Link device.
+2.	Gateway IP.  Enter the IP Address of the server PC.
 
 Note:  There is a tool in the Utilities folder that (after node.js is installed) allow you to get a list of the found TP-Link devices.  From Windows, run "GetDeviceIPs.bat".
 
