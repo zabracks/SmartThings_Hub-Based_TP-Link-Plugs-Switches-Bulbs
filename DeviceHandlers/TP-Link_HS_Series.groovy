@@ -3,6 +3,9 @@ TP-Link HS Series Device Handler
 
 Copyright 2017 Dave Gutheinz
 
+Compatable with 'TP-LinkServer_v3.js' and 'TP-LinkServer_oldNode.js' files with any of the following 'COMPATABILITY KEY' on line 4:
+	a.	HubVersion 1.0
+
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:
 
 		http://www.apache.org/licenses/LICENSE-2.0
