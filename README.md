@@ -17,7 +17,8 @@ Version 3.0.  New version with modifications to user interface, error handling, 
    --  Raspberry PI
 -  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
-https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png
+<img src="https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png" align="center"/>
+
 
 # TP-Link Devices Supported:
 -  HS100, Hs105, HS110, HS200 - TP-Link_HS_Series.groovy
