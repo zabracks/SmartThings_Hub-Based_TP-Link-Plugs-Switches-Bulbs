@@ -7,19 +7,25 @@ This java script uses node.js functionality to provide a hub between SmartThings
 a.	TP-Link Connect (including Discovery)
 b.	TP-Link Smart Things Integration
 c.	TP-Link Bridge (OPTIONAL)
-07/09/2017 - Updated for commonality with existing (non-connected) TP-Link and Bridge Device Handlers.
+
 07/13/2017 - Update to eliminate the 1.5% comms error rate I am getting.  At same time, updating the Energy Monitor Device Handlers - optional for existing users.
 07/13/2017 - Update to add switch "oldNode" to allow working with pre-node.js V6 installations.  Major difference is the depreciated 'new Buffer' command whose replacement 'Buffer.alloc' does not exist in the earlier versions.
 07/13/2017 - Removed Bridge Support from this file.  Update Bridge installation accordingly.
+07/09/2017 - Updated for commonality with existing (non-connected) TP-Link and Bridge Device Handlers.
 */
 
-//----- Options for this program -----------------------------------
-var oldNode = "no"	//	no means receent node.js installation	
-var logFile = "yes"	//	Yes for log file.
-//var oldNode = "yes"	//	yes means pre-ver 6 node.js installation	
-//var logFile = "no"	//	Must be no when oldNode is yes.
+//##### Options for this program ###################################
+var logFile = "yes"	//	Set to no to disable error.log file.
 var hubPort = 8082	//	Synched with Device Handlers.
-//------------------------------------------------------------------
+//##################################################################
+
+//---- Determine if old Node version, act accordingly -------------
+console.log("Node.js Version Detected:   " + process.version)
+var oldNode = "no"
+if (process.version == "v6.0.0-pre") {
+	oldNode ="yes"
+	logFile = "no"
+}
 
 //---- Program set up and global variables -------------------------
 var http = require('http')
