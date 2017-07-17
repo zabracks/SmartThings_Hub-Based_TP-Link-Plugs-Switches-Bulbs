@@ -35,7 +35,7 @@ Installation instructions can be found in the documentation folder.
 -  Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
 
 # Files:
-Top Level.  Contains the 'TP-LinkServer_v3.js' and windows 'TP-LinkServer_v3.bat' files for the bridge installation.  Additionally, the file 'TP-LinkServer_oldNode.js' is included for android and Fire Tablet installation.
+Top Level.  Contains the 'TP-LinkServer_v3.js' and windows 'TP-LinkServer_v3.bat' files for the bridge installation.
 
 DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device applicability.
 
