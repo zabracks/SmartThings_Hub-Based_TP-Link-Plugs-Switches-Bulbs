@@ -61,8 +61,7 @@ function onRequest(request, response){
 	
 		//---- Special Case for Energy Meter --------------------
 		case "emeterCmd":
-//			processEmeterCommand(request, response)
-			processDeviceCommand(request, response)
+			processEmeterCommand(request, response)
 			break
 
 		default:
