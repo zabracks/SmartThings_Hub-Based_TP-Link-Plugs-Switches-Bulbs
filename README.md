@@ -1,9 +1,7 @@
 # TP-Link Bulb, Plug, and Switch Integration with SmartThing Version 3
 Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
 
-07-13-2017.  Added java script version for Andoid and Kindle Fire devices using 'Server Ultimate' to provide node.js.
-
-07-04-2017.  Added new Device Handlers for TP-Link Bulbs with Energy Monitor Functions.  Edited other files w/o function change for common format for ease of maintenance.  ALL CHANGES ARE SUPERFICIAL AND DO NOT REQUIRE RELOAD.
+CURRENT EFFORT.  Currently, I am developing a Service Manager and Device Handler set for all devices that use the TP-Link Cloud vice the local hub.  Expected BETA version is Aug 1. Even after that, this version will be maintained since I see a great value in not relying on yet another cloud service.
 
 # Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
