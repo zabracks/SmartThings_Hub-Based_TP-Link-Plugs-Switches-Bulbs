@@ -15,7 +15,7 @@ CURRENT EFFORT.  Currently, I am developing a Service Manager and Device Handler
    --  Raspberry PI
 -  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
-<img src="https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png" align="center"/>
+<img src="https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/Hub-Based_Integration/blob/master/FamilyScreenshot.png" align="center"/>
 
 
 # TP-Link Devices Supported:
