@@ -1,9 +1,21 @@
-# TP-Link Bulb, Plug, and Switch Integration with SmartThing Version 3
-Version 3.0.  New version with modifications to user interface, error handling, support to the HS110 plug energy monitor functions.
+# Hub-Based TP-Link Bulb, Plug, and Switch SmartThing Integration
 
-CURRENT EFFORT.  Currently, I am developing a Service Manager and Device Handler set for all devices that use the TP-Link Cloud vice the local hub.  Expected BETA version is Aug 1. Even after that, this version will be maintained since I see a great value in not relying on yet another cloud service.
+Two versions of TP-Link to Smart Things Integraion now exist:
 
-# Pre-requisites:
+a.  Hub-Based TP-Link to Smart Things Integraion:  The Hub-based version that requires an always on Hub device (bridge).   Attributes:
+
+   1) Requires user-configured (PC, Android, Raspberry) Hub with node.js and server script.
+   2) Does not require a token captured from the TP-Link cloud.
+   3) Manual device installation and setting static IP addresses.
+
+b.  Cloud-Based TP-Link to Smart Things Integraion:  The new version (currently in Beta) that relies on the TP-Link Kasa cloud.  Attributes:
+
+   1) Reliant on TP-Link cloud (and the continued availabilty of same).
+   2) Must have TP-Link account.
+   3) Simpler setup.  Install Service Manager and applicable device handlers.  Runs service Manager.
+
+
+# Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
 
    --  Window PC, Laptop, Tablet, Stick Computer
@@ -26,7 +38,7 @@ CURRENT EFFORT.  Currently, I am developing a Service Manager and Device Handler
 -  LB120 - TP-Link_LB120.groovy
 -  LB120 with energy monitor functions - TP-Link_LB120_Emeter.groovy
 -  LB130 - TP-Link_LB130.groovy
--  LB120 with energy monitor functions - TP-Link_LB130_Emeter.groovy
+-  LB130 with energy monitor functions - TP-Link_LB130_Emeter.groovy
 
 Installation instructions can be found in the documentation folder.
 -  New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
