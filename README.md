@@ -14,12 +14,7 @@ b.  Cloud-Based TP-Link to Smart Things Integraion:  The new version (currently 
    2) Must have TP-Link account.
    3) Simpler setup.  Install Service Manager and applicable device handlers.  Runs service Manager.
 
-# Planned Update
-   Between Aug 13 and the end of August, I will be updating the Device Handlers and documentation to create a common interface with the Cloud-based version.  These changes will not impact anything but the smartphone interface and will be interchangable with the existing Device Handlers.  
-   
-   After that update is complete, further changes will be for reported errors only. 
-   
-  
+
 # Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
 
