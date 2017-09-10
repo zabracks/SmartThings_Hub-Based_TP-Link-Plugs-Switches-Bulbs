@@ -2,18 +2,17 @@
 
 Two versions of TP-Link to Smart Things Integraion now exist:
 
-a.  Hub-Based TP-Link to Smart Things Integraion:  The Hub-based version that requires an always on Hub device (bridge).   Attributes:
+a. Cloud-Based TP-Link to Smart Things Integraion: This new version that relies on the TP-Link Kasa cloud. Attributes:
 
-   1) Requires user-configured (PC, Android, Raspberry) Hub with node.js and server script.
-   2) Does not require a token captured from the TP-Link cloud.
-   3) Manual device installation and setting static IP addresses.
+    Reliant on TP-Link cloud (and the continued availabilty of same).
+    Must have TP-Link account.
+    Simpler setup. Install Service Manager and applicable device handlers. Runs service Manager.
 
-b.  Cloud-Based TP-Link to Smart Things Integraion:  The new version (currently in Beta) that relies on the TP-Link Kasa cloud.  Attributes:
+b. Hub-Based TP-Link to Smart Things Integraion: The previous Hub-based version that requires an always on Hub device (bridge). Attributes:
 
-   1) Reliant on TP-Link cloud (and the continued availabilty of same).
-   2) Must have TP-Link account.
-   3) Simpler setup.  Install Service Manager and applicable device handlers.  Runs service Manager.
-
+    Requires user-configured (PC, Android, Raspberry) Hub with node.js and server script.
+    Does not require a token captured from the TP-Link cloud.
+    Manual device installation and setting static IP addresses.
 
 # Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
