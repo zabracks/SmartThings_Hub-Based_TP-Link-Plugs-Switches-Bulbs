@@ -26,9 +26,6 @@ b. Hub-Based TP-Link to Smart Things Integraion: The previous Hub-based version 
    --  Raspberry PI
 -  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
-<img src="https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png" align="center"/>
-
-
 # Files in Device Handler Folder:
 TP-Link Model: FileName // Namespace/Name
 
