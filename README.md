@@ -29,22 +29,29 @@ b. Hub-Based TP-Link to Smart Things Integraion: The previous Hub-based version 
 <img src="https://github.com/DaveGut/TP-Link-to-SmartThings-Integration/blob/master/FamilyScreenshot.png" align="center"/>
 
 
-# TP-Link Devices Supported:
--  HS100, Hs105, HS110, HS200 - TP-Link_HS_Series.groovy
--  HS110 with energy monitor functions - TP-Link_HS110_Emeter.groovy
--  LB100, LB110 - TP-Link_LB100_110.groovy
--  LB110 with energy monitor functions - TP-Link_LB110_Emeter.groovy
--  LB120 - TP-Link_LB120.groovy
--  LB120 with energy monitor functions - TP-Link_LB120_Emeter.groovy
--  LB130 - TP-Link_LB130.groovy
--  LB130 with energy monitor functions - TP-Link_LB130_Emeter.groovy
+# Files in Device Handler Folder:
+TP-Link Model: FileName // Namespace/Name
+
+HS100, HS105, HS200, HS210, KP100: (Hub) TP-Link Plug-Switch.groovy // davegut - (Hub) TP-Link Plug-Switch
+
+HS110, HS115: (Hub) TP-Link EnergyMonitor Plug.groovy // davegut - (Hub) TP-Link EnergyMonitor Plug
+
+LB100, LB110, LB200, KB100: (Hub) TP-Link SoftWhite Bulb.groovy // davegut - (Cloud) TP-Link Softwhite Bulb
+
+LB120: (Hub) TP-Link TunableWhite Bulb.groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb
+
+LB130, L230, KB130: (Hub) TP-Link Color Bulb.groovy // davegut - (Cloud) TP-Link Color Bulb
+
+LB110: (Hub) TP-Link SoftWhite Bulb Emon .groovy // davegut - (Cloud) TP-Link Softwhite Bulb Emon
+
+3LB120: (Hub) TP-Link TunableWhite Bulb Emon .groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb Emon
+
+LB130, L230, KB130: (Hub) TP-Link Color Bulb Emon .groovy // davegut - (Cloud) TP-Link Color Bulb Emon
 
 Installation instructions can be found in the documentation folder.
--  New (initial):  'Instructions - TP-Link Server Install.txt' in folder 'Documentation'
--  Upgrade:  'Update from earlier versions.txt' in folder 'Documentation'.
 
 # Files:
-Top Level.  Contains the 'TP-LinkServer_v3.js' and windows 'TP-LinkServer_v3.bat' files for the bridge installation.
+Top Level.  Contains the 'TP-LinkHub_v2.js' and windows 'TP-LinkHub_v2.bat' files for the Hub installation.
 
 DeviceHandlers.  All SmartThings device handlers.  Names are clear as to device applicability.
 
