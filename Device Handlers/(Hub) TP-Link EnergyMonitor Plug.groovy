@@ -219,8 +219,6 @@ def energyMeterResponse(cmdResponse) {
 		state.powerScale = "power"
 		state.energyScale = "energy"
 	}
-	log.debug state.powerScale
-	log.debug state.energyScale
 	def powerConsumption = realtime."${state.powerScale}"
 		if (state.powerScale == "power_mw") {
 			powerConsumption = Math.round(powerConsumption/10) / 100
@@ -237,7 +235,6 @@ def getConsumption(){
 }
 
 def useTodayResponse(cmdResponse) {
-log.debug cmdResponse
 	def wattHrToday
 	def wattHrData
 	def dayList = cmdResponse["emeter"]["get_daystat"].day_list
@@ -279,7 +276,6 @@ def getPrevMonth() {
 }
 
 def engrStatsResponse(cmdResponse) {
-log.debug cmdResponse
 	def dayList = cmdResponse["emeter"]["get_daystat"].day_list
 	if (!dayList[0]) {
 		log.info "$device.name $device.label: Month has no energy data."
