@@ -2,13 +2,13 @@
 
 Two versions of TP-Link to Smart Things Integraion now exist:
 
-a. Cloud-Based TP-Link to Smart Things Integraion: This new version that relies on the TP-Link Kasa cloud. Attributes:
+a. Cloud-Based TP-Link to Smart Things Integraion: This version that relies on the TP-Link Kasa cloud. Attributes:
 
     Reliant on TP-Link cloud (and the continued availabilty of same).
     Must have TP-Link account.
     Simpler setup. Install Service Manager and applicable device handlers. Runs service Manager.
 
-b. Hub-Based TP-Link to Smart Things Integraion: The previous Hub-based version that requires an always on Hub device (bridge). Attributes:
+b. Hub-Based TP-Link to Smart Things Integraion: The Hub-based version that requires an always on Hub device (bridge). Attributes:
 
     Requires user-configured (PC, Android, Raspberry) Hub with node.js and server script.
     Does not require a token captured from the TP-Link cloud.
@@ -17,33 +17,23 @@ b. Hub-Based TP-Link to Smart Things Integraion: The previous Hub-based version 
 # Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
 
-   --  Window PC, Laptop, Tablet, Stick Computer
+        Window PC, Laptop, Tablet, Stick Computer
+        Android devices with 'Server Ultimate'
+        Amazon Kindle Fire (tablet) with 'Server Ultimate'
+        Raspberry PI
    
-   -- Android devices with 'Server Ultimate'
-   
-   -- Amazon Kindle Fire (tablet) with 'Server Ultimate'
-   
-   --  Raspberry PI
 -  Static IP address for the bridge and TP-Link devices.  (done through your WiFi router as DHCP address reservations.
 
 # Files in Device Handler Folder:
-TP-Link Model: FileName // Namespace/Name
-
-HS100, HS105, HS200, HS210, KP100: (Hub) TP-Link Plug-Switch.groovy // davegut - (Hub) TP-Link Plug-Switch
-
-HS110, HS115: (Hub) TP-Link EnergyMonitor Plug.groovy // davegut - (Hub) TP-Link EnergyMonitor Plug
-
-LB100, LB110, LB200, KB100: (Hub) TP-Link SoftWhite Bulb.groovy // davegut - (Cloud) TP-Link Softwhite Bulb
-
-LB120: (Hub) TP-Link TunableWhite Bulb.groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb
-
-LB130, L230, KB130: (Hub) TP-Link Color Bulb.groovy // davegut - (Cloud) TP-Link Color Bulb
-
-LB110: (Hub) TP-Link SoftWhite Bulb Emon .groovy // davegut - (Cloud) TP-Link Softwhite Bulb Emon
-
-3LB120: (Hub) TP-Link TunableWhite Bulb Emon .groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb Emon
-
-LB130, L230, KB130: (Hub) TP-Link Color Bulb Emon .groovy // davegut - (Cloud) TP-Link Color Bulb Emon
+    TP-Link Model: FileName // Namespace/Name
+    HS100, HS105, HS200, HS210, KP100: (Hub) TP-Link Plug-Switch.groovy // davegut - (Hub) TP-Link Plug-Switch
+    HS110, HS115: (Hub) TP-Link EnergyMonitor Plug.groovy // davegut - (Hub) TP-Link EnergyMonitor Plug
+    LB100, LB110, LB200, KB100: (Hub) TP-Link SoftWhite Bulb.groovy // davegut - (Cloud) TP-Link Softwhite Bulb
+    LB120: (Hub) TP-Link TunableWhite Bulb.groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb
+    LB130, L230, KB130: (Hub) TP-Link Color Bulb.groovy // davegut - (Cloud) TP-Link Color Bulb
+    LB110: (Hub) TP-Link SoftWhite Bulb Emon .groovy // davegut - (Cloud) TP-Link Softwhite Bulb Emon
+    LB120: (Hub) TP-Link TunableWhite Bulb Emon .groovy // davegut - (Cloud) TP-LinkTunableWhite Bulb Emon
+    LB130, L230, KB130: (Hub) TP-Link Color Bulb Emon .groovy // davegut - (Cloud) TP-Link Color Bulb Emon
 
 Installation instructions can be found in the documentation folder.
 
