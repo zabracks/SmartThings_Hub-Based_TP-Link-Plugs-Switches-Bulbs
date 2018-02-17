@@ -14,6 +14,24 @@ b. Hub-Based TP-Link to Smart Things Integraion: The Hub-based version that requ
     Does not require a token captured from the TP-Link cloud.
     Manual device installation and setting static IP addresses.
 
+# Version 2 Update - 1/30/2018
+The Files have been updated to Version 2. Changes from previous version
+
+a. Added transition time of (user selectable) for bulb power-on and off.
+
+b. Made Energy Monitor function compatible with the Australian version of the HS110 (HS110(AU)).
+
+c. Changed file naming to be function-based instead of product number based due to expanded TP-Link Product Base.
+
+d. Changed naming convention to be compatible with SmartThings - GitHub integration.
+
+Upgrade recommendation: Not needed unless you are adding products not supported with the previous version.
+
+2/172018 - Updated Energy Monitor device handlers to not process the entire previous month data. Also, modified calculations to clean up logic and use Groovy date.
+
+# Known Issue:
+On March 1 (and 2) of standard years, the month total nergy data do not include the 2 days (1 day) days in January. The month average energy value is calculated using 28 days (29 days).
+
 # Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
 
