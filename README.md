@@ -29,6 +29,8 @@ Upgrade recommendation: Not needed unless you are adding products not supported 
 
 2/19/2018 - Updated Energy Monitor device handlers to not process the entire previous month data. Also, modified calculations to clean up logic and use Groovy date.
 
+4/26/2018 - Added HS220 Dimming Switch device handler.
+
 # Hub-Based Pre-requisites:
 -  bridge device running node.js and the TP-LinkServer applet.  This device must be on continuously with th program running.  Examples of devices:
 
